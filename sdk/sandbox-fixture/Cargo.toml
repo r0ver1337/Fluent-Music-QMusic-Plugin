@@ -1,0 +1,20 @@
+[package]
+name = "fluent-sandbox-fixture"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+publish = false
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[[example]]
+name = "desktopLyricsProvider"
+crate-type = ["cdylib"]
+
+[dependencies]
+fluent-plugin-api.workspace = true
+fluent-plugin-abi.workspace = true
+
+[target.'cfg(windows)'.dependencies]
+windows-sys = { version = "0.61.2", features = ["Win32_Foundation", "Win32_Security_Cryptography"] }

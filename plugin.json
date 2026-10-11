@@ -1,0 +1,17 @@
+{
+  "abiVersion": 2,
+  "id": "qqmusic",
+  "library": "qqmusic.dll",
+  "options": {},
+  "manifest": {
+    "network": [
+      "https://*.qq.com",
+      "http://*.qq.com",
+      "https://*.qpic.cn",
+      "https://*.gtimg.cn",
+      "https://*.gtimg.com",
+      "https://*.qlogo.cn",
+      "https://qlogo.cn"
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+/target/
+/dist/
+/data/
+/temp/
+.env
+*.dll
+*.exe
+*.so
+*.dat
+*.log
+__pycache__/

@@ -1,0 +1,59 @@
+[package]
+name = "fluent-qqmusic-plugin"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[workspace]
+resolver = "2"
+members = [".", "sdk/plugin-api", "sdk/plugin-abi", "sdk/plugin-host", "sdk/sandbox-fixture"]
+default-members = ["."]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.92"
+license = "MIT"
+
+[workspace.dependencies]
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+reqwest = { version = "0.12", default-features = false, features = ["blocking", "json", "rustls-tls"] }
+url = "2.5"
+tempfile = "3.23"
+fluent-plugin-api = { path = "sdk/plugin-api" }
+fluent-plugin-abi = { path = "sdk/plugin-abi" }
+fluent-plugin-host = { path = "sdk/plugin-host" }
+
+[profile.release]
+lto = "thin"
+strip = "debuginfo"
+
+[lib]
+name = "qqmusic"
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+fluent-plugin-api.workspace = true
+fluent-plugin-abi.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+reqwest.workspace = true
+url.workspace = true
+md-5 = "0.10"
+aes = "0.8"
+cbc = { version = "0.1", features = ["alloc"] }
+base64 = "0.22"
+uuid = { version = "1", features = ["v4"] }
+tempfile.workspace = true
+zeroize = "1.8"
+ring = "0.17"
+flate2 = "1"
+quick-xml = "0.41"
+
+[target.'cfg(windows)'.dependencies]
+windows-sys = { version = "0.61.2", features = ["Win32_Foundation", "Win32_Security_Cryptography"] }
+
+[dev-dependencies]
+fluent-plugin-host.workspace = true
+symphonia = { version = "0.5.5", features = ["mp3", "aac", "isomp4", "alac"] }

@@ -1,0 +1,22 @@
+[package]
+name = "fluent-plugin-host"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+fluent-plugin-api.workspace = true
+fluent-plugin-abi.workspace = true
+serde.workspace = true
+libloading = "0.8"
+ring = "0.17"
+serde_json.workspace = true
+reqwest.workspace = true
+tempfile.workspace = true
+url.workspace = true
+
+[target.'cfg(windows)'.dependencies]
+windows-sys = { version = "0.61.2", features = ["Win32_Foundation", "Win32_Security", "Win32_Security_Authorization", "Win32_Security_Isolation", "Win32_Storage_FileSystem", "Win32_System_Threading", "Win32_System_Pipes", "Win32_System_Memory", "Win32_System_JobObjects", "Win32_System_LibraryLoader", "Win32_System_Com", "Win32_UI_WindowsAndMessaging", "Win32_UI_Controls_Dialogs", "Win32_UI_Shell", "Win32_UI_Shell_Common"] }
+
+[dev-dependencies]
+fluent-sandbox-fixture = { path = "../sandbox-fixture" }

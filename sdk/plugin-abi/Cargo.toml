@@ -1,0 +1,15 @@
+[package]
+name = "fluent-plugin-abi"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+fluent-plugin-api.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+reqwest.workspace = true
+http-types = { package = "http", version = "1" }
+
+[build-dependencies]
+cc = "1"
